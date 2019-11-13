@@ -1,0 +1,35 @@
+{
+    "name": "your_personal_shopper",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "description": "Surveils your browsing ot get a personalized list of things you probably don't care about",
+    "icons": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "permissions": [
+        "history",
+        "tabs",
+        "topSites",
+        "storage",
+        "identity",
+        "identity.email",
+        "webNavigation",
+        "*://*/*"
+    ],
+    "background": {
+        "scripts": ["lib/jquery.min.js", "background.js"],
+        "persistent": true
+      },
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "js": [
+            "inject.js"
+        ]
+      }
+    ]
+  }
